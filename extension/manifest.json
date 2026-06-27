@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Job Tracker — Sriniketh",
+  "version": "1.0",
+  "description": "Log job applications instantly with auto-filled details",
+  "permissions": ["activeTab", "storage", "scripting"],
+  "host_permissions": ["<all_urls>"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "48": "icon.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "48": "icon.png"
+  }
+}

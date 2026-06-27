@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Job Tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0D1117;
+      --card: #161B22;
+      --border: #30363D;
+      --text: #E6EDF3;
+      --muted: #8B949E;
+      --accent: #6366F1;
+      --input-bg: #0D1117;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      width: 380px;
+      min-height: 200px;
+      padding: 20px;
+      -webkit-font-smoothing: antialiased;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+    }
+    .logo {
+      font-size: 18px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #6366F1, #8B5CF6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .theme-btn {
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text);
+      font-size: 14px;
+      padding: 4px 8px;
+      cursor: pointer;
+    }
+    label {
+      display: block;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1.5px solid var(--border);
+      background: var(--input-bg);
+      color: var(--text);
+      font-size: 13px;
+      font-family: 'Inter', sans-serif;
+      outline: none;
+      margin-bottom: 12px;
+      transition: border-color 0.2s;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--accent);
+    }
+    textarea { resize: vertical; min-height: 60px; }
+    .row { display: flex; gap: 10px; }
+    .row > div { flex: 1; }
+    .confirm-btn {
+      width: 100%;
+      padding: 11px;
+      border-radius: 10px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      margin-top: 4px;
+      transition: opacity 0.2s;
+    }
+    .confirm-btn:hover { opacity: 0.88; }
+    .confirm-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    .toast {
+      display: none;
+      margin-top: 12px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      text-align: center;
+    }
+    .toast.success { display: block; background: rgba(16,185,129,0.15); color: #10B981; border: 1px solid rgba(16,185,129,0.3); }
+    .toast.error   { display: block; background: rgba(239,68,68,0.12); color: #EF4444; border: 1px solid rgba(239,68,68,0.3); }
+    .divider { border: none; border-top: 1px solid var(--border); margin: 16px 0; }
+    select option { background: #1a1f2e; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <span class="logo">🗂️ Job Tracker</span>
+    <button class="theme-btn" id="themeBtn">☀️</button>
+  </div>
+
+  <div>
+    <div class="row">
+      <div>
+        <label>Company</label>
+        <input id="company" type="text" placeholder="Google" />
+      </div>
+      <div>
+        <label>Date</label>
+        <input id="date" type="date" />
+      </div>
+    </div>
+
+    <label>Job Title</label>
+    <input id="jobTitle" type="text" placeholder="Software Engineer" />
+
+    <label>Location</label>
+    <input id="location" type="text" placeholder="Bangalore, India" />
+
+    <label>Job Link</label>
+    <input id="link" type="text" placeholder="Auto-filled from current tab" />
+
+    <div class="row">
+      <div>
+        <label>Resume Used</label>
+        <select id="resume"></select>
+      </div>
+      <div>
+        <label>Status</label>
+        <select id="status">
+          <option>Applied</option>
+          <option>Interview</option>
+          <option>Scheduled</option>
+          <option>Accepted</option>
+          <option>Rejected</option>
+          <option>Ghosted</option>
+        </select>
+      </div>
+    </div>
+
+    <label>Notes (optional)</label>
+    <textarea id="notes" placeholder="Referral, recruiter name, etc."></textarea>
+
+    <button class="confirm-btn" id="confirmBtn">✅ Confirm & Save</button>
+    <div class="toast" id="toast"></div>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
