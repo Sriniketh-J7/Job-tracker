@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { Pencil, Trash2 } from "lucide-react";
+import { Pencil, Search, Trash2 } from "lucide-react";
 import StatusBadge from "./StatusBadge.jsx";
 import { STATUS_META, ALL_STATUSES } from "../lib/constants.js";
 
 const COLS = ["Company", "Role", "Status", "Date", "Location", "Resume", "Link", "Actions"];
 
-export default function ApplicationsTable({ apps, onStatusChange, onEdit, onDelete, filterStatus, onFilterChange, search }) {
+export default function ApplicationsTable({ apps, onSearchChange, search, onStatusChange, onEdit, onDelete, filterStatus, onFilterChange }) {
   const filtered = apps.filter(a => {
     const matchStatus = filterStatus === "All" || a.status === filterStatus;
     const matchSearch = !search || [a.company, a.job_title, a.location]
@@ -34,11 +34,38 @@ export default function ApplicationsTable({ apps, onStatusChange, onEdit, onDele
           justifyContent: "space-between",
         }}
       >
-        <h3
-          style={{ color: "#E6EDF3", fontSize: 15, fontWeight: 600, margin: 0 }}
-        >
-          Recent Applications
-        </h3>
+        {/* Search applications */}
+        <div style={{ position: "relative" }}>
+          <Search
+            size={15}
+            style={{
+              position: "absolute",
+              left: 12,
+              top: "50%",
+              transform: "translateY(-50%)",
+              color: "#8B949E",
+            }}
+          />
+          <input
+            placeholder="Search applications, companies..."
+            value={search}
+            onChange={(e) => onSearchChange(e.target.value)}
+            style={{
+              paddingLeft: 36,
+              paddingRight: 14,
+              paddingTop: 9,
+              paddingBottom: 9,
+              borderRadius: 10,
+              border: "1.5px solid #30363D",
+              background: "#161B22",
+              color: "#E6EDF3",
+              fontSize: 13,
+              outline: "none",
+              width: 260,
+              fontFamily: "inherit",
+            }}
+          />
+        </div>
         <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
           {["All", ...ALL_STATUSES].map((s) => {
             const active = filterStatus === s;

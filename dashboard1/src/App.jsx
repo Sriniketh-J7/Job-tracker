@@ -194,7 +194,7 @@ export default function App() {
             bg="rgba(99,102,241,0.15)"
             trend={12}
           />
-        
+
           <StatCard
             icon={<Users size={24} />}
             label="Interviews"
@@ -212,7 +212,7 @@ export default function App() {
             trend={100}
           />
           <StatCard
-            icon={<CircleX size={24}/>}
+            icon={<CircleX size={24} />}
             label="Rejections"
             value={stats.rejections}
             color="#EF4444"
@@ -242,6 +242,7 @@ export default function App() {
         ) : (
           <ApplicationsTable
             apps={apps}
+            onSearchChange={setSearch}
             search={search}
             filterStatus={filterStatus}
             onFilterChange={setFilterStatus}

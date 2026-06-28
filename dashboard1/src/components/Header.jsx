@@ -36,37 +36,7 @@ export default function Header({ onAddClick, search, onSearchChange, onLogout })
       {/* Right - search + icons + button */}
       <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
         {/* Search */}
-        <div style={{ position: "relative" }}>
-          <Search
-            size={15}
-            style={{
-              position: "absolute",
-              left: 12,
-              top: "50%",
-              transform: "translateY(-50%)",
-              color: "#8B949E",
-            }}
-          />
-          <input
-            placeholder="Search applications, companies..."
-            value={search}
-            onChange={(e) => onSearchChange(e.target.value)}
-            style={{
-              paddingLeft: 36,
-              paddingRight: 14,
-              paddingTop: 9,
-              paddingBottom: 9,
-              borderRadius: 10,
-              border: "1.5px solid #30363D",
-              background: "#161B22",
-              color: "#E6EDF3",
-              fontSize: 13,
-              outline: "none",
-              width: 260,
-              fontFamily: "inherit",
-            }}
-          />
-        </div>
+       
 
         {/* Notification bell */}
         <button
@@ -125,11 +95,10 @@ export default function Header({ onAddClick, search, onSearchChange, onLogout })
               style={{
                 position: "absolute",
                 top: 46,
-                // left: 1,
                 right: 0,
                 width: 80,
                 background: "#c21919",
-                border: "1px solid #000000",
+                border: "1px solid #828282",
                 borderRadius: 6,
                 overflow: "hidden",
                 boxShadow: "0 10px 30px rgba(0,0,0,0.35)",
