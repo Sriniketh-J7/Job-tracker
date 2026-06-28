@@ -1,3 +1,7 @@
+export const username = "Sriniketh"
+export const userTitle = "SJ"
+
+
 export const STATUS_META = {
   Applied:      { color: "#4e7aff", bg: "rgba(28, 73, 210, 0.17)",   icon: "📤", label: "Applied" },
   Interview:    { color: "#f1ac4b", bg: "rgba(244, 199, 37, 0.23)",   icon: "🎙️", label: "Interview" },

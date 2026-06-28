@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ALL_STATUSES } from "../lib/constants.js";
+import { ALL_STATUSES, username } from "../lib/constants.js";
 
 const inputStyle = {
   width: "100%", padding: "9px 12px", borderRadius: 8,
@@ -62,7 +62,7 @@ export default function AddApplicationModal({ onSave, onCancel }) {
         <input value={form.job_title} onChange={e => set("job_title", e.target.value)} style={inputStyle} placeholder="Software Engineer" />
 
         <label style={labelStyle}>Location</label>
-        <input value={form.location} onChange={e => set("location", e.target.value)} style={inputStyle} placeholder="Bangalore, India" />
+        <input value={form.location} onChange={e => set("location", e.target.value)} style={inputStyle} placeholder="Hyderabad, India" />
 
         <label style={labelStyle}>Job Link</label>
         <input value={form.link} onChange={e => set("link", e.target.value)} style={inputStyle} placeholder="https://careers.google.com/..." />
@@ -70,7 +70,7 @@ export default function AddApplicationModal({ onSave, onCancel }) {
         <div style={{ display: "flex", gap: 12 }}>
           <div style={{ flex: 1 }}>
             <label style={labelStyle}>Resume Used</label>
-            <input value={form.resume_name} onChange={e => set("resume_name", e.target.value)} style={inputStyle} placeholder="sriniketh_resume_SWE" />
+            <input value={form.resume_name} onChange={e => set("resume_name", e.target.value)} style={inputStyle} placeholder={`${username}_resume_SWE`} />
           </div>
           <div style={{ flex: 1 }}>
             <label style={labelStyle}>Status</label>
