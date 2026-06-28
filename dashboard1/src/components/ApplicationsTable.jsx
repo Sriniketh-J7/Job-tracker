@@ -6,6 +6,9 @@ import { STATUS_META, ALL_STATUSES } from "../lib/constants.js";
 const COLS = ["Company", "Role", "Status", "Date", "Location", "Resume", "Link", "Actions"];
 
 export default function ApplicationsTable({ apps, onSearchChange, search, onStatusChange, onEdit, onDelete, filterStatus, onFilterChange }) {
+
+  const [openStatusId, setOpenStatusId] = useState(null);
+  
   const filtered = apps.filter(a => {
     const matchStatus = filterStatus === "All" || a.status === filterStatus;
     const matchSearch = !search || [a.company, a.job_title, a.location]
@@ -193,7 +196,14 @@ export default function ApplicationsTable({ apps, onSearchChange, search, onStat
                     <StatusBadge
                       status={row.status}
                       editable
-                      onChange={(s) => onStatusChange(row.id, s)}
+                      isOpen={openStatusId === row.id}
+                      onToggle={() =>
+                        setOpenStatusId(openStatusId === row.id ? null : row.id)
+                      }
+                      onClose={() => setOpenStatusId(null)}
+                      onChange={(newStatus) => {
+                        updateStatus(row.id, newStatus);
+                      }}
                     />
                   </td>
                   <td
