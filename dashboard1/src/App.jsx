@@ -15,6 +15,7 @@ import { FileText, Clock3, Users, Briefcase, CircleX } from "lucide-react";
 
 
 export default function App() {
+  
   const [authed, setAuthed] = useState(() => localStorage.getItem("jt_auth") === "1");
   const [apps, setApps] = useState([]);
   const [loading, setLoading] = useState(true);
