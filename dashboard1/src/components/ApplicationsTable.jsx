@@ -202,7 +202,8 @@ export default function ApplicationsTable({ apps, onSearchChange, search, onStat
                       }
                       onClose={() => setOpenStatusId(null)}
                       onChange={(newStatus) => {
-                        updateStatus(row.id, newStatus);
+                        onStatusChange(row.id, newStatus); // existing functionality
+                        setOpenStatusId(null); // close dropdown
                       }}
                     />
                   </td>
@@ -213,7 +214,11 @@ export default function ApplicationsTable({ apps, onSearchChange, search, onStat
                       whiteSpace: "nowrap",
                     }}
                   >
-                    {row.date}
+                    {new Date(row.date).toLocaleDateString("en-GB", {
+                      day: "2-digit",
+                      month: "long",
+                      year: "numeric",
+                    })}
                   </td>
                   <td style={{ padding: "14px 18px", color: "#8B949E" }}>
                     {row.location || "— —"}
