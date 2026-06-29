@@ -1,0 +1,262 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #0D1117;
+  color: #E6EDF3;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #30363D; border-radius: 3px; }
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-8px); }
+  40% { transform: translateX(8px); }
+  60% { transform: translateX(-5px); }
+  80% { transform: translateX(5px); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  cursor: pointer;
+}
+
+/* ── Base layout — full width, no overflow ──────────────────────────────────── */
+
+html, body, #root {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.header-root {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 36px;
+  border-bottom: 1px solid #21262D;
+  background: #0D1117;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  gap: 12px;
+  width: 100%;
+}
+
+.main-padding {
+  padding: 24px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+.add-btn-row {
+  padding: 20px 36px 0;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.charts-row {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
+
+.statcard-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  width: 100%;
+}
+
+/* Modal */
+.modal-box {
+  background: #161B22;
+  border: 1px solid #30363D;
+  border-radius: 16px;
+  padding: 32px;
+  width: 480px;
+  max-width: calc(100vw - 32px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* Table wrapper — horizontal scroll on all sizes */
+.table-scroll-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Table filter bar */
+.table-filter-bar {
+  padding: 16px 20px;
+  border-bottom: 1px solid #21262D;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ── Tablet (768px – 1200px) ──────────────────────────────────────────────── */
+@media (max-width: 1200px) and (min-width: 769px) {
+  .statcard-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .header-root {
+    padding: 20px 24px;
+  }
+
+  .main-padding {
+    padding: 20px 24px;
+  }
+
+  .add-btn-row {
+    padding: 16px 24px 0;
+  }
+}
+
+/* ── Mobile (≤768px) ──────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+
+  /* ── Header ── */
+  .header-root {
+    padding: 12px 16px;
+    gap: 8px;
+  }
+
+  .header-greeting h1 {
+    font-size: 15px !important;
+    font-weight: 600 !important;
+  }
+
+  .header-greeting p {
+    font-size: 11px !important;
+    margin-top: 2px !important;
+  }
+
+  .header-right {
+    gap: 8px !important;
+  }
+
+  .header-bell {
+    display: none;
+  }
+
+  /* ── Add button row ── */
+  .add-btn-row {
+    padding: 12px 16px 0;
+  }
+
+  /* ── Main content ── */
+  .main-padding {
+    padding: 14px 16px;
+    gap: 14px;
+  }
+
+  /* ── Stat cards: 2 columns, compact height ── */
+  .statcard-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .statcard-inner {
+    padding: 12px 14px !important;
+    gap: 8px !important;
+    border-radius: 14px !important;
+  }
+
+  .statcard-top-row {
+    gap: 12px !important;
+  }
+
+  .statcard-icon {
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 10px !important;
+    font-size: 16px !important;
+  }
+
+  .statcard-label {
+    font-size: 11px !important;
+    font-weight: 500 !important;
+  }
+
+  .statcard-value {
+    font-size: 22px !important;
+    margin-top: 4px !important;
+  }
+
+  .statcard-trend {
+    font-size: 11px !important;
+  }
+
+  /* ── Charts: each on its own row ── */
+  .charts-row {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  /* ── Modals ── */
+  .modal-box {
+    width: calc(100vw - 24px) !important;
+    padding: 18px 14px !important;
+    border-radius: 14px !important;
+  }
+
+  .modal-row-2col {
+    flex-direction: column !important;
+    gap: 0 !important;
+  }
+
+  /* ── Table filter bar ── */
+  .table-filter-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 10px 12px;
+  }
+
+  .table-search-input {
+    width: 100% !important;
+  }
+
+  /* ── Table: smaller font, horizontal scroll ── */
+  .table-scroll-wrapper table {
+    font-size: 11px !important;
+    min-width: 640px;
+  }
+
+  .table-scroll-wrapper th {
+    padding: 9px 10px !important;
+    font-size: 10px !important;
+  }
+
+  .table-scroll-wrapper td {
+    padding: 10px 10px !important;
+    font-size: 11px !important;
+  }
+
+  /* Company avatar smaller on mobile */
+  .table-scroll-wrapper .company-avatar {
+    width: 24px !important;
+    height: 24px !important;
+    font-size: 10px !important;
+  }
+}
