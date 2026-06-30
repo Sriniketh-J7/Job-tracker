@@ -1,7 +1,27 @@
 # 🗂️ Job Tracker — Setup Guide
 A modern Job Application Tracker that helps job seekers organize, monitor, and manage their job applications in one place. Track application status, store resumes, maintain interview notes, and never lose sight of your job search.
 
-It includes dashboard, database and an extension making it easy to use. 
+---
+
+## ✨ Features
+
+- 📌 Add and manage job applications
+- 📊 Interactive dashboard with application statistics
+- 🏢 Company, role, and location tracking
+- 📅 Application date and follow-up reminders
+- 📝 Store notes for each application
+- 📎 Upload and manage resumes
+- 🔍 Search and filter applications
+- 📈 Status tracking
+  - Applied
+  - Interview
+  - Offer
+  - Rejected
+- 🌙 Clean and responsive UI
+- 🔐 Secure user authentication
+- ☁️ Cloud-based data storage
+
+---
 
 ## Step 1 — Supabase Setup
 1. Go to https://supabase.com → create a free account → new project
