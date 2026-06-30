@@ -30,13 +30,13 @@ export default function StatCard({ icon, label, value, color, bg, trend }) {
         </div>
       </div>
 
-      {trend !== undefined && (
+      {/* {trend !== undefined && (
         <div className="statcard-trend" style={{ display: "flex", alignItems: "center", gap: 6, color: "#54D2A0", fontSize: 14, fontWeight: 600 }}>
           <span>↗</span>
           <span>{trend}%</span>
           <span style={{ color: "#A1A8B3", fontWeight: 400 }}>from last month</span>
         </div>
-      )}
+      )} */}
     </div>
   );
 }
