@@ -14,7 +14,6 @@ It includes dashboard, database and an extension making it easy to use.
 Open **both** these files and paste your Supabase URL and anon key:
 - `dashboard/src/config.js` → also set your dashboard password here
 - `extension/config.js` → also edit your resume versions list here
-and write the password that you need to access the dashboard
 
 ## Step 3 — Deploy Dashboard to Vercel
 1. Go to https://vercel.com → sign up (free)
