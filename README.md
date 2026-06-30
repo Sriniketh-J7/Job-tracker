@@ -1,16 +1,20 @@
 # 🗂️ Job Tracker — Setup Guide
+A modern Job Application Tracker that helps job seekers organize, monitor, and manage their job applications in one place. Track application status, store resumes, maintain interview notes, and never lose sight of your job search.
+
+It includes dashboard, database and an extension making it easy to use. 
 
 ## Step 1 — Supabase Setup
 1. Go to https://supabase.com → create a free account → new project
 2. Go to **SQL Editor** → New Query → paste the contents of `supabase_schema.sql` → Run
 3. Go to **Project Settings → API** → copy:
    - Project URL (looks like `https://abcxyz.supabase.co`)
-   - `anon` public key
+   - `anon` public key 
 
 ## Step 2 — Fill in your credentials
 Open **both** these files and paste your Supabase URL and anon key:
 - `dashboard/src/config.js` → also set your dashboard password here
 - `extension/config.js` → also edit your resume versions list here
+and write the password that you need to access the dashboard
 
 ## Step 3 — Deploy Dashboard to Vercel
 1. Go to https://vercel.com → sign up (free)
